@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 // Defining class for Address
-// Using Encapsulation and Abstraction Of OOP
+// Using Encapsulation and Abstraction Of OOP 
+// Along using SOLID's OOP principles which Open/Close Principle and Single Responsibility Princeple
 //Start of the class
 class Address{
     private:

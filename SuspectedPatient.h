@@ -11,9 +11,7 @@ class SuspectedPatient{
         string name;
         string phone;
         bool quarantineFor14Days;
-
-
-
+        bool didContact; //  nurse will be able to see all the suspects for infection who not yet contacted them
     public:
         int getSpatient_id();
         void setSpatient_id(int Spatient_id);
@@ -22,7 +20,9 @@ class SuspectedPatient{
         string getPhone();
         void setPhone(string phone);
         bool getQuarantineFor14Days();
-        void setQuarantineFor14Days(bool quarantineFor14Days)
+        void setQuarantineFor14Days(bool quarantineFor14Days);
+        bool getDidContact();
+        void setDidContact(bool didContact);
 };
 
 int SuspectedPatient::getSpatient_id(){
@@ -50,3 +50,11 @@ bool SuspectedPatient::getQuarantineFor14Days() {
 void SuspectedPatient::setQuarantineFor14Days(bool quarantineFor14Days) {
 	this->quarantineFor14Days = quarantineFor14Days;
 }
+
+bool SuspectedPatient::getDidContact() {
+	return this->didContact;
+}
+void SuspectedPatient::setDidContact(bool didContact) {
+	this->didContact = didContact;
+}
+// End of the class
