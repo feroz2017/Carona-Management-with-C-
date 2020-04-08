@@ -1,41 +1,59 @@
 #include <iostream>
 #include <string>
-#include "address.h"
+//#include "RouteSite.h"
 using namespace std;
 // Defining class for Route which will be taken by patient
 // Using Encapsulation and Abstraction Of OOP
 //Start of the class
-class Route{
+class RouteAddress : public RouteSite{
     private:
-        string date; // For simplicity I am using date as a input in string 
-        string time; // For simplicity I am using time as a input in string
-        string siteName;
-        Address address;
+        int number;
+        string street;
+        string city;
     public:
-        void setDate(string date);
-        string getDate();
-        string getTime();
-        void setTime(string time);
+        RouteAddress(int id,string date,string time, 
+        string siteName,string city,
+         string street, int num): RouteSite(id,date,time,siteName){
+             this->number = number;
+             this->street = street;
+             this->city = city;
+         }
+        int getNumber();
+        void setNumber(int number);
+        string getStreet();
+        void setStreet(string street);
+        string getCity();
+        void setCity(string city);
+        void setAddress(int number,string street,string city );
         void getAddress();
-        void setAddress(int number,string street,string city);
+
 };
-string Route::getDate() {
-    	return this->date;
-    }
-void Route::setDate(string date) {
-    	this->date = date;
+int RouteAddress::getNumber(){
+	return this->number;
 }
-string Route::getTime() {
-	return this->time;
+void RouteAddress::setNumber(int number) {
+	this->number = number;
 }
-void Route::setTime(string time) {
-	this->time = time;
+
+string RouteAddress::getStreet() {
+	return this->street;
+}
+void RouteAddress::setStreet(string street) {
+	this->street = street;
 }
 
 
-void Route::getAddress() {
-	return this->address.getAddress();
+string RouteAddress::getCity() {
+	return this->city;
 }
-void Route::setAddress(int number,string street,string city) {
-	this->address.setAddress(number,street,city);
+void RouteAddress::setCity(string city) {
+	this->city = city;
+}
+void RouteAddress::setAddress(int number,string street,string city ){
+    this->number = number;
+    this->street = street;
+    this->city = city;
+}
+void RouteAddress::getAddress(){
+    cout << this->number << this->street << this->city << endl;
 }

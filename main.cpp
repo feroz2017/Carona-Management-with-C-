@@ -4,9 +4,9 @@
 #include <fstream>
 #include "src/InfectedPatient.h"
 #include "src/SuspectedPatient.h"
-#include "src/Route.h"
+#include "src/RouteSite.h"
+#include "src/RouteAddress.h"
 #include "src/Test.h"
-#define MAX 100
 using namespace std; 
 vector <string> commandParser(string command){
 	vector <string> tokens; 
@@ -42,8 +42,8 @@ void addDatatoFile(vector <string> commands, string filename){
 */
 void loadData(vector <SuspectedPatient> suspatients,
 			vector <InfectedPatient> infPatients,
-			vector <Route> routesite,
-			vector <Route> routeAddress,
+			vector <RouteAddress> routeAddress,
+			vector <RouteSite> routeSite,
 			vector <Test> tests){
 				/*
 					Start:
@@ -99,13 +99,37 @@ void loadData(vector <SuspectedPatient> suspatients,
 				file.open("database/routesite.txt");
 				while(getline(file,data)){
 					vector <string> record = commandParser(data);
-					suspatients.push_back(SuspectedPatient(atoi(record[0].c_str()),
+					routeSite.push_back(RouteSite(atoi(record[0].c_str()),
 					record[1],
 					record[2],
 					record[3]));
 					
 				}
 				file.close();
+				cout << routeSite[3].getId() << endl;
+				/*
+					End:
+					Storing data of Infected Patients
+				*/
+			/*
+					Start:
+					Storing data of Suspected Patients
+				*/
+				file.open("database/routeAddress.txt");
+				while(getline(file,data)){
+					vector <string> record = commandParser(data);
+					routeAddress.push_back(RouteAddress(atoi(record[0].c_str()),
+					record[1],
+					record[2],
+					record[3],
+					record[4],
+					record[5],
+					atoi(record[6].c_str())
+					));
+					
+				}
+				file.close();
+				
 				/*
 					End:
 					Storing data of Infected Patients
@@ -118,7 +142,8 @@ void loadData(vector <SuspectedPatient> suspatients,
 			*/
 void storeData(vector <SuspectedPatient> suspatients,
 			vector <InfectedPatient> infPatients,
-			vector <Route> routes,
+			vector <RouteAddress> routeAddress,
+			vector <RouteSite> routeSite,
 			vector <Test> tests);
 int main(void) 
 { 
@@ -130,15 +155,15 @@ int main(void)
 	vector <string> commands; 
 	vector <SuspectedPatient> suspatients;
 	vector <InfectedPatient> infPatients;
-	
-	vector <Route> routes;
+	vector <RouteAddress> routeAddress;
+	vector <RouteSite> routeSite;
 	vector <Test> tests;
 	/*End:
 		Declaring Vairables for this applcation
 	*/
 				cout << "yes0" << endl;
 
-	loadData(suspatients,infPatients,routes,tests);
+	loadData(suspatients,infPatients,routeAddress,routeSite,tests);
 	ifstream fcommand(filename.c_str());
 	if(fcommand.fail()){
 		cout << "There is some error" << endl;
