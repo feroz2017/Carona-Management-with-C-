@@ -9,32 +9,32 @@ class Route{
     private:
         string date; // For simplicity I am using date as a input in string 
         string time; // For simplicity I am using time as a input in string
-        Address address;
+        string siteName;
+
+
     public:
         void setDate(string date);
         string getDate();
         string getTime();
         void setTime(string time);
-        void getAddress();
-        void setAddress(int number,string street,string city);
+        string getSiteName();
+        void setSiteName(string siteName);
 };
 string Route::getDate() {
     	return this->date;
     }
 void Route::setDate(string date) {
     	this->date = date;
-    }
+}
 string Route::getTime() {
 	return this->time;
 }
 void Route::setTime(string time) {
 	this->time = time;
 }
-
-
-void Route::getAddress() {
-	return this->address.getAddress();
-}
-void Route::setAddress(int number,string street,string city) {
-	this->address.setAddress(number,street,city);
-}
+string Route::getSiteName() {
+        	return this->siteName;
+        }
+void Route::setSiteName(string siteName) {
+        	this->siteName = siteName;
+        }

@@ -17,12 +17,38 @@ class InfectedPatient{
         string email;
         string apartment;
         string street;
+        int houseNum;
         int NumberofHouseMember;
         string city;
     /*
         Their Getter and Setter Methods 
     */
     public:
+        InfectedPatient(int Ipatient_id,
+        string first_name,
+        string last_name,
+        string birthday,
+        string phone,
+        string email,
+        string city,
+        string street,
+        int houseNum,
+        string apartment,
+        int NumberofHouseMember){
+                 this->Ipatient_id = Ipatient_id;
+        this->first_name= first_name;
+        this->last_name = last_name;
+        this->birthday = birthday;
+        this->phone =  phone;
+        this->email = email;
+        this->apartment = apartment;
+        this->street = street;
+        this->houseNum = houseNum;
+        this->NumberofHouseMember = NumberofHouseMember;
+        this->city = city;
+        }
+        int getHouseNum(); 
+        void setHouseNum(int houseNum);
         string getFirst_name();
         void setFirst_name(string first_name);
         string getLast_name();
@@ -122,6 +148,12 @@ int InfectedPatient::getPatient_id()
 void InfectedPatient::setPatient_id(int patient_id)
 {
  	this->Ipatient_id= patient_id;
+}
+int InfectedPatient::getHouseNum() {
+	return this->houseNum;
+}
+void InfectedPatient::setHouseNum(int houseNum) {
+	this->houseNum = houseNum;
 }
 
 // End of the class
