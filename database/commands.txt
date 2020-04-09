@@ -1,6 +1,1 @@
-Add-route-address jfkd  jfkd
-Create-sick 2 Ahmed Hassan 34July2016 034754445 mmferoz.12mu@gmail.com Islamabad 34 12 Milad 10
-Create-sick 2 Ahmed Hassan 34July2016 034754445 mmferoz.12mu@gmail.com Islamabad 34 12 MiladChowk 10
-Create-sick 2 Ahmed Hassan 34July2016 034754445 mmferoz.12mu@gmail.com Islamabad 34 12 Milad-Chowkk 10
-Create-sick 2 Ahmed Hassan 34July2016 034754445 mmferoz.12mu@gmail.com Islamabad 34 12 Miladdddd 10
-Add-route-site jdf jfdj
+

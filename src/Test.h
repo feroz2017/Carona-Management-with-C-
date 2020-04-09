@@ -13,6 +13,19 @@ class Test{
         string date_of_test;
         bool test_result;// – positive\negative => 1/0 OR true/false;
     public:
+        Test(int lab_id,
+        int test_id,
+        int Tpatient_id,
+        string date_of_test,
+        bool test_result){
+
+            this->lab_id = lab_id;
+        this->test_id = test_id;
+        this->Tpatient_id = Tpatient_id;
+        this->date_of_test = date_of_test;
+        this->test_result = test_result;
+
+        }
         int getLab_id();
         void setLab_id(int lab_id);
         int getTest_id();

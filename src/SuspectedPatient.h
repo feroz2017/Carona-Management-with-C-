@@ -22,8 +22,8 @@ class SuspectedPatient{
             this->first_name = first_name;
             this->last_name = last_name;
             this->phone = phone;
-            this->quarantineFor14Days = NULL;
-            this->didContact = NULL;
+            this->quarantineFor14Days = true;
+            this->didContact = false;
         }
         int getSpatient_id();
         void setSpatient_id(int Spatient_id);

@@ -1,3 +1,2 @@
 4 firstname lastname phone1
 5 firstname lastname phone2
-6 firstname lastname phone3
