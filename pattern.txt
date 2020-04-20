@@ -1,0 +1,7 @@
+Design Patterns were used while coding this project:
+1. DRY (Don’t repeat yourself)
+2. Encapsulate What Changes
+3. Open Closed Design Principle
+4. Single Responsibility Principle (SRP)
+5. Liskov Substitution Principle (LSP)
+6. Inheritance

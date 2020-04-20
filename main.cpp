@@ -262,10 +262,61 @@ int main(void)
 			}
 		}
 		else if (commands[0] == "Show-stat"){
-			cout << "Route Address" << endl;
+			for(int index = 1 ; index < commands.size();index++){
+				if(commands[index] == "sicks"){
+				cout << "** BEGIN SICKS ** " << endl;
+				cout << "sicks"<<" " << infPatients.size()<<endl;
+				cout << "** END SICKS **"<< endl;
+				}
+				else if(commands[index] == "isolated"){
+				cout << "** BEGIN ISOLATED ** " << endl;
+				cout << "sicks"<<" " << infPatients.size()<<endl;
+				cout << "** END ISOLATED **"<< endl;
+				}
+				else if(commands[index] == "sick-per-city"){
+				cout << "** BEGIN SICK PER CITY ** " << endl;
+				vector <string> citites;
+				bool firstcome = false;
+				for(int index = 0 ;index < infPatients.size();index++){
+					citites.push_back(infPatients[index].getCity());
+					for(int i = 0; i < index;i++){
+						if(citites[i] == infPatients[index].getCity() ){
+							firstcome = true;
+							break;
+						}
+					}
+					if(firstcome){
+						continue;
+					}
+					int count = 0;
+					for(int j = 0 ; j < infPatients.size(); j++ ){
+						if(infPatients[j].getCity() == infPatients[index].getCity() ){
+							j++;
+						}
+					}
+					cout <<infPatients[index].getCity()<< " "<< count << endl;
+				}
+				cout << "** END SICK PER CITY **"<< endl;
+				}
+				
+			}
 		}
 		else if (commands[0] == "Show-person"){
-			cout << "Route Address" << endl;
+			int id = atoi(commands[1].c_str());
+			for (int index = 0;index < infPatients.size();index++){
+				if(id == infPatients[index].getPatient_id()){
+					cout << infPatients[index].getPatient_id() << "," << infPatients[index].getFirst_name() << ","<< infPatients[index].getLast_name() << ","<<infPatients[index].getPhone()<< ","<< infPatients[index].getEmail()<< "," << infPatients[index].getCity() << ",\n"<< infPatients[index].getStreet()<< ","<<infPatients[index].getHouseNum()<<","<<infPatients[index].getNumberofHouseMember()<< endl;
+					break;
+				}
+			}
+			for (int index = 0; index < tests.size();index++){
+				if(id == tests[index].getLab_id()){
+				cout << "** LAB RESULT BEGIN ** " << endl;
+				cout << tests[index].getDate_of_test() << " " << tests[index].getLab_id() << tests[index].getTest_id() << " " <<  tests[index].getTest_result() << " " <<endl;
+				cout << "** LAB RESULT END **"<< endl;
+				}
+
+			}
 		}
 		else if (commands[0] == "Show-person-route"){
 			bool exits = false;
@@ -288,7 +339,11 @@ int main(void)
 			}
 		}
 		else if (commands[0] == "Show-isolated"){
-			cout << "Route Address" << endl;
+				cout << "These are infected and Isolated Persons. " <<endl;
+				for (int index = 0;index < infPatients.size();index++){
+				
+					cout << infPatients[index].getPatient_id() << "," << infPatients[index].getFirst_name() << ","<< infPatients[index].getLast_name() << ","<<infPatients[index].getPhone()<< ","<< infPatients[index].getEmail()<< "," << infPatients[index].getCity() << ",\n"<< infPatients[index].getStreet()<< ","<<infPatients[index].getHouseNum()<<","<<infPatients[index].getNumberofHouseMember()<< endl;
+			}		
 		}
 		else if (commands[0] == "Show-help"){
 			cout << "1. Create-sick id firstname lastname birthdate phone mail city street house-number apartment\n\thouse-residents if the same id used more than once,\n\t the details of the last run will override the previous one" << endl;
